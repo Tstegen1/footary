@@ -1,7 +1,7 @@
 <template>
   <v-card width="400px" class="mx-auto mt-5">
     <v-card-title>
-      <h1 class="display-1">サインアップ</h1>
+      <h1 class="display-1">ログイン</h1>
     </v-card-title>
     <v-card-text>
       <v-form>
@@ -23,7 +23,7 @@
           <p class="red--text">{{ feedback }}</p>
         </div>
         <v-card-actions>
-          <v-btn class="primary" v-on:click="signup">サインアップ</v-btn>
+          <v-btn class="primary" v-on:click="login">ログイン</v-btn>
         </v-card-actions>
       </v-form>
     </v-card-text>
@@ -34,7 +34,7 @@
 import firebase from "../plugins/firebase";
 
 export default {
-  name: "Signup",
+  name: "Login",
   data() {
     return {
       email: null,
@@ -44,12 +44,12 @@ export default {
     };
   },
   methods: {
-    signup() {
+    login() {
       if (this.email && this.password) {
         this.feedback = null;
         firebase
           .auth()
-          .createUserWithEmailAndPassword(this.email, this.password)
+          .signInWithEmailAndPassword(this.email, this.password)
           .then(() => {
             this.$router.push({ name: "Home" });
           })
