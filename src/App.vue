@@ -1,14 +1,13 @@
 <template>
-<!-- <router-view></router-view> -->
   <v-app>
-    <DiaryNavbar />
+    <DiaryNavbar></DiaryNavbar>
     <v-main>
       <v-container>
-        <router-view />
+        <router-view></router-view>
       </v-container>
     </v-main>
     <v-footer app color="primary" dark class="justify-center">
-      Vue Firebase Auth
+      footary
     </v-footer>
   </v-app>
 </template>
@@ -18,7 +17,6 @@ import DiaryNavbar from './components/DiaryNavbar';
 
 export default {
   name: "App",
-
   components: {
     DiaryNavbar
   }

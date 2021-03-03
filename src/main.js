@@ -15,13 +15,13 @@ Vue.component('Home', Home);
 Vue.component('Signup', Signup);
 Vue.component('Login', Login);
 
-let app = null;
+let app = null
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
-    new Vue({
-      vuetify,
+    app = new Vue({
       router,
+      vuetify,
       render: h => h(App)
-    }).$mount('#app')
+    }).$mount("#app");
   }
-})
+});

@@ -1,7 +1,7 @@
 <template>
   <v-card width="400px" class="mx-auto mt-5">
     <v-card-title>
-      <h1 class="display-1">サインアップ</h1>
+      <h1 class="display-1">新規登録</h1>
     </v-card-title>
     <v-card-text>
       <v-form>
@@ -23,7 +23,7 @@
           <p class="red--text">{{ feedback }}</p>
         </div>
         <v-card-actions>
-          <v-btn class="primary" v-on:click="signup">サインアップ</v-btn>
+          <v-btn class="primary" v-on:click="signup">新規登録</v-btn>
         </v-card-actions>
       </v-form>
     </v-card-text>
