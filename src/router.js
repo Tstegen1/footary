@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './components/Home.vue';
-import Signup from './components/Signup.vue';
-import Login from './components/Login.vue';
-import Diary from './components/Diary.vue';
+import Home from './pages/Home.vue';
+import Signup from './pages/Signup.vue';
+import Login from './pages/Login.vue';
+import Diary from './pages/Diary.vue';
 import firebase from './plugins/firebase';
 
 //vue-routerを適用する

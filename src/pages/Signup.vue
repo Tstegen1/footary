@@ -19,6 +19,12 @@
           v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="showPassword = !showPassword"
         />
+        <v-text-field
+          prepend-icon="mdi-face"
+          type="name"
+          label="ニックネーム"
+          v-model="name"
+        />
         <div v-if="feedback" class="text-center">
           <p class="red--text">{{ feedback }}</p>
         </div>
@@ -40,17 +46,21 @@ export default {
       email: null,
       password: null,
       feedback: null,
+      name: null,
       showPassword: false
     };
   },
   methods: {
     signup() {
-      if (this.email && this.password) {
+      if (this.email && this.password && this.name) {
         this.feedback = null;
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
-          .then(() => {
+          .then((user) => {
+            user.displayName = this.name;
+            // this.$store.dispatch('getName', user.displayName)
+            localStorage.setItem('name', user.displayName);
             this.$router.push({ name: "Home" });
           })
           .catch(() => {

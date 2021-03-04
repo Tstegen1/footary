@@ -19,12 +19,6 @@
           v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           @click:append="showPassword = !showPassword"
         />
-        <!-- <v-text-field
-          prepend-icon="mdi-face"
-          type="name"
-          label="ニックネーム"
-          v-model="name"
-        /> -->
         <div v-if="feedback" class="text-center">
           <p class="red--text">{{ feedback }}</p>
         </div>
@@ -45,7 +39,6 @@ export default {
     return {
       email: null,
       password: null,
-      // name: null,
       feedback: null,
       showPassword: false
     };
@@ -58,8 +51,6 @@ export default {
           .auth()
           .signInWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            // user.displayName = this.name;
-            // console.log(user.displayName)
             this.$router.push({ name: "Home" });
           })
           .catch(() => {

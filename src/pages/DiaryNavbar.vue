@@ -13,7 +13,7 @@
         ログイン
       </v-btn>
       <v-btn text v-if="user">
-        {{ user.displayName }}
+        {{ this.name }}
       </v-btn>
       <v-btn text v-if="user" @click="logout">
         ログアウト
@@ -29,18 +29,24 @@ export default {
   data() {
     return {
       user: null,
+      name: null
     };
   },
   created() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.user = user;
-        console.log(user.displayName)
+        this.name = localStorage.getItem('name');
       } else {
         this.user = null;
       }
     });
   },
+  // computed: {
+  //   userName() {
+  //     return this.$store.state.userName;
+  //   }
+  // },
   methods: {
     logout() {
       firebase

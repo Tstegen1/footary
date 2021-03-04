@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import DiaryNavbar from './components/DiaryNavbar';
+import DiaryNavbar from './pages/DiaryNavbar';
 
 export default {
   name: "App",
