@@ -6,8 +6,7 @@ import Signup from './pages/Signup.vue';
 import Login from './pages/Login.vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
-import firebase from './plugins/firebase';
-// import store from './store/store';
+import store from './store/store';
 
 Vue.config.productionTip = false
 
@@ -16,14 +15,9 @@ Vue.component('Home', Home);
 Vue.component('Signup', Signup);
 Vue.component('Login', Login);
 
-let app = null
-firebase.auth().onAuthStateChanged(() => {
-  if (!app) {
-    app = new Vue({
-      router,
-      vuetify,
-      // store,
-      render: h => h(App)
-    }).$mount("#app");
-  }
-});
+new Vue({
+  router,
+  vuetify,
+  store,
+  render: h => h(App)
+}).$mount("#app");

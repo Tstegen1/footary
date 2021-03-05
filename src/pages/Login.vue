@@ -1,5 +1,8 @@
 <template>
-  <v-card width="400px" class="mx-auto mt-5">
+  <v-card-actions>
+    <v-btn class="primary" v-on:click="login">ログイン</v-btn>
+  </v-card-actions>
+  <!-- <v-card width="400px" class="mx-auto mt-5">
     <v-card-title>
       <h1 class="display-1">ログイン</h1>
     </v-card-title>
@@ -27,7 +30,7 @@
         </v-card-actions>
       </v-form>
     </v-card-text>
-  </v-card>
+  </v-card> -->
 </template>
 
 <script>
@@ -45,20 +48,27 @@ export default {
   },
   methods: {
     login() {
-      if (this.email && this.password) {
-        this.feedback = null;
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(this.email, this.password)
-          .then(() => {
-            this.$router.push({ name: "Home" });
-          })
-          .catch(() => {
-            this.feedback = "メールアドレスまたはパスワードが正しくありません";
-          });
-      } else {
-        this.feedback = "メールアドレスとパスワードを入力してください";
-      }
+      // if (this.email && this.password) {
+      //   this.feedback = null;
+      //   firebase
+      //     .auth()
+      //     .signInWithEmailAndPassword(this.email, this.password)
+      //     .then(() => {
+      //       this.$router.push({ name: "Home" });
+      //     })
+      //     .catch(() => {
+      //       this.feedback = "メールアドレスまたはパスワードが正しくありません";
+      //     });
+      // } else {
+      //   this.feedback = "メールアドレスとパスワードを入力してください";
+      // }
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          console.log(result);
+        }).catch((error) => {
+          alert(error);
+        })
     }
   }
 };
