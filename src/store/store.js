@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
+    user: null 
   },
   mutations: {
 
@@ -13,4 +13,8 @@ export default new Vuex.Store({
   actions: {
 
   },
+  //computedプロパティのようなもの
+  getters: {
+
+  }
 })

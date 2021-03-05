@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <DiaryNavbar></DiaryNavbar>
+    <!-- <DiaryNavbar></DiaryNavbar> -->
     <v-main>
       <v-container>
         <router-view></router-view>
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import DiaryNavbar from './pages/DiaryNavbar';
+// import DiaryNavbar from './pages/DiaryNavbar';
 
-export default {
-  name: "App",
-  components: {
-    DiaryNavbar
-  }
-};
+// export default {
+//   name: "App",
+//   components: {
+//     DiaryNavbar
+//   }
+// };
 </script>
