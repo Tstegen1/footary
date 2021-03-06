@@ -6,7 +6,7 @@
 
 <script>
 import firebase from "../plugins/firebase";
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: "Login",
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     // setUser読み込み
-    ...mapMutations(['setUser']),
+    ...mapActions(['setUser']),
     login() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider)
