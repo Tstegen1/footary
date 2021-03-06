@@ -6,8 +6,9 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   //流れ
   // 最初userはnull
-  // ログイン→mutationsのsetUserの第二引数（user）にユーザ情報が入る→stateのuserを更新する
-  // mutationsによってuserがnullから更新されたことによって
+  // ログイン→actionsのsetUserの第二引数（user）にユーザ情報が入る
+  //actionsがcontext.commitによってsetUserが実行されて
+  // mutationsが実行され、userがnullから更新される
   // gettersのstateがtrueを返す→認証したことを意味する
   state: {
     user: null 
@@ -20,7 +21,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-
+    setUser(context, user) {
+      context.commit('setUser', user)
+    }
   },
   //stateがログインしているかしていないか状態の管理
   getters: {
