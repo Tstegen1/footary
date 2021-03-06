@@ -6,6 +6,7 @@
 
 <script>
 import firebase from "../plugins/firebase";
+import { mapMutations } from 'vuex';
 
 export default {
   name: "Login",
@@ -14,11 +15,14 @@ export default {
     };
   },
   methods: {
+    // setUser読み込み
+    ...mapMutations(['setUser']),
     login() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider)
       .then((result) => {
         console.log(result);
+        this.setUser(result.user);
         this.$router.push({ name: "Home" });
       }).catch((error) => {
         alert(error);

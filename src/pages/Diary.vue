@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Hello Vuetify World!</h1>
-    <h1>{{ currentUser }}</h1>
+    <v-toolbar-title>
+    {{ currentUser.displayName }}
+    </v-toolbar-title>
     <v-btn @click="logout">
       ログアウト
     </v-btn>
@@ -15,7 +16,7 @@ export default {
   computed: {
     currentUser() {
       // stateにアクセスする
-      return this.$store.state.user
+      return this.$store.state.user;
     }
   },  
   methods: {

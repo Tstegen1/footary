@@ -2,27 +2,23 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
         <h1>Hello Vuetify World!</h1>
-        <h1>{{ currentUser }}</h1>
+        <h1>{{ currentUser.displayName }}</h1>
       </v-col>
     </v-row>   
     <v-btn text v-if="user" @click="logout">
       ログアウト
     </v-btn>
-    <v-btn text v-if="user" @click="note">
-      go note
+    <v-btn text v-if="user" @click="diary">
+      go footary
     </v-btn>
   </v-container>     
 </template>
 
 <script>
 import firebase from '../plugins/firebase';
+
+
 export default {
   data() {
     return {
@@ -39,9 +35,13 @@ export default {
     });
   },
   computed: {
+    //stateを取得する
     currentUser() {
-      // stateにアクセスする
-      return this.$store.state.user
+      return this.$store.state.user;
+    },
+    //stateの状態を取得
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
     }
   },
   methods: {
@@ -55,9 +55,8 @@ export default {
         alert(error);
       })
     },
-    note() {
+    diary() {
       this.$router.push({ name: "Diary" });
-
     }
   }
 }
