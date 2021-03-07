@@ -7,7 +7,7 @@ import Login from './pages/Login.vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store/store';
-import Top from './pages/AAA';
+import Top from './pages/Top.vue';
 
 Vue.config.productionTip = false
 

@@ -1,7 +1,7 @@
 <template>
-  <v-toolbar-title>
-    footary
-  </v-toolbar-title>
+<v-container>
+  aaaaaaaaaaaaaaaa
+</v-container>
 </template>
 
 <script>
@@ -10,8 +10,8 @@ import { mapActions } from 'vuex';
 
 export default {
   methods: {
-    ...mapActions(['setUser'])
-  },
+    ...mapActions(['setUser']),
+  },   
   mounted() {
     firebase.auth().onAuthStateChanged((user) => {
       if(user) {
