@@ -4,6 +4,7 @@ import Home from './pages/Home.vue';
 import Signup from './pages/Signup.vue';
 import Login from './pages/Login.vue';
 import Diary from './pages/Diary.vue';
+import Top from './pages/AAA.vue';
 import firebase from './plugins/firebase';
 
 //vue-routerを適用する
@@ -39,6 +40,11 @@ const routes = [
     path: '/diary',
     name: 'Diary',
     component: Diary
+  },
+  {
+    path: '/top',
+    name: 'Top',
+    component: Top
   },
 ];
 

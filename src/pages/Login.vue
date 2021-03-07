@@ -7,7 +7,7 @@
 <script>
 import firebase from "../plugins/firebase";
 import { mapActions } from 'vuex';
-
+ 
 export default {
   name: "Login",
   data() {
@@ -23,7 +23,7 @@ export default {
       .then((result) => {
         console.log(result);
         this.setUser(result.user);
-        this.$router.push({ name: "Home" });
+        this.$router.push({ name: "Top" });
       }).catch((error) => {
         alert(error);
       })

@@ -17,8 +17,7 @@
 
 <script>
 import firebase from '../plugins/firebase';
-
-
+ 
 export default {
   data() {
     return {
@@ -58,6 +57,6 @@ export default {
     diary() {
       this.$router.push({ name: "Diary" });
     }
-  }
+  },     
 }
 </script>
