@@ -7,7 +7,11 @@
 <script>
 import firebase from "../plugins/firebase";
 import { mapActions } from 'vuex';
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> origin/master
 export default {
   name: "Login",
   data() {
