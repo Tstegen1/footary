@@ -1,6 +1,6 @@
 <template>
   <v-card-actions>
-    <v-btn class="primary" v-on:click="login">ログイン</v-btn>
+    <v-btn class="primary" @click="login">ログイン</v-btn>
   </v-card-actions>
 </template>
 
@@ -11,10 +11,6 @@ import { mapActions } from 'vuex';
 
 export default {
   name: "Login",
-  data() {
-    return {
-    };
-  },
   methods: {
     // setUser読み込み
     ...mapActions(['setUser']),
