@@ -1,16 +1,24 @@
+<!-- ログイン -->
 <template>
-  <v-card-actions>
-    <v-btn class="primary" @click="login">ログイン</v-btn>
-  </v-card-actions>
+  <v-container>
+    <Navbar />
+    <v-card-actions>
+      <v-btn class="primary" @click="login">ログイン</v-btn>
+    </v-card-actions>
+  </v-container>
 </template>
 
 <script>
 import firebase from "../plugins/firebase";
 import { mapActions } from 'vuex';
+import Navbar from './Navbar'
 
 
 export default {
   name: "Login",
+  components: {
+    Navbar
+  },
   methods: {
     // setUser読み込み
     ...mapActions(['setUser']),
