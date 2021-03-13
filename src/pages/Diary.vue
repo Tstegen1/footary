@@ -1,22 +1,10 @@
-<!--  -->
+<!-- サッカーノートを書く -->
 <template>
-  <v-container>
-    <Navbar />
-    <v-row class="text-center">
-      aaaaaaaa
-    </v-row> 
-    <router-link to="/">back</router-link>
-  </v-container>
+  <v-main>
+    <h1>ノート書くページです</h1>
+  </v-main>
 </template>
 
 <script>
-// import firebase from '../plugins/firebase';
-import Navbar from '../pages/Navbar'
-
-export default {
-  components: {
-    Navbar
-  }
-}
 </script>
 

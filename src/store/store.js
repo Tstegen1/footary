@@ -3,15 +3,16 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+// -------------------------------------------//
+//最初はuserがnull
+// ログイン→actionsのsetUserの第二引数（user）にユーザ情報が入る
+//actionsがcontext.commitによってsetUserが実行されて
+// mutationsが実行され、userがnullから更新される
+// gettersのstateがtrueを返す→認証したことを意味する
+// -------------------------------------------//
 export default new Vuex.Store({
-  //流れ
-  // 最初userはnull
-  // ログイン→actionsのsetUserの第二引数（user）にユーザ情報が入る
-  //actionsがcontext.commitによってsetUserが実行されて
-  // mutationsが実行され、userがnullから更新される
-  // gettersのstateがtrueを返す→認証したことを意味する
   state: {
-    user: null 
+    user: null
   },
   //ログイン時にstate.userを書き換える
   mutations: {
