@@ -2,12 +2,14 @@
 <template>
   <div>
     <v-app-bar color="deep-purple" dark>
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-if="userStatus" @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title>Footary</v-toolbar-title>
-      <v-btn text v-if="userStatus" @click="logout">
+      <!-- v-if="userStatus" -->
+      <v-btn v-if="userStatus" text @click="logout">
         ログアウト
       </v-btn>
-      <v-btn text v-else  @click="login">
+      <!-- v-else -->
+      <v-btn text v-else @click="login">
         ログイン
       </v-btn>
     </v-app-bar>
@@ -18,7 +20,7 @@
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title><router-link to="/">Home</router-link></v-list-item-title>
+            <v-list-item-title><router-link to="/home">Home</router-link></v-list-item-title>
           </v-list-item>
           <v-list-item>
             <v-list-item-icon>
@@ -35,6 +37,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
+    <router-view></router-view>
   </div>  
 </template>
 
@@ -79,6 +82,13 @@ export default {
       })
     }    
   }, 
+  mounted() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user) {
+        this.setUser(user)
+      }
+    })
+  },  
 }
 //   mounted() {
 //     firebase.auth().onAuthStateChanged((user) => {
