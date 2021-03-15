@@ -1,4 +1,4 @@
-<!-- ログインした後のホーム画面 -->
+<!-- ホーム画面 -->
 <template>
   <v-main>
     <v-row class="text-center">

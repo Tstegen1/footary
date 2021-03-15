@@ -1,8 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './pages/Home.vue';
-import Login from './pages/Login.vue';
+import Authentication from './pages/Authentication';
 import Diary from './pages/Diary.vue';
+import User from './pages/User.vue';
 // import Navbar from './pages/Navbar.vue';
 // import store from './store/store';
 
@@ -34,14 +35,19 @@ const routes = [
     // }
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
+    path: '/authentication',
+    name: 'Authentication',
+    component: Authentication
   },
   {
     path: '/diary',
     name: 'Diary',
     component: Diary
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: User
   },
 ];
 
