@@ -1,13 +1,18 @@
 <!-- 共通のナビゲーション画面 -->
 <template>
-  <v-app>
-    <v-app-bar absolute app color="primary" dark>
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+  <header>
+    <v-app-bar app dark color="primary">
+      <v-app-bar-nav-icon  dark  @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title>Footary</v-toolbar-title>
+      <v-tabs>
+        <v-tab to="/">Home</v-tab>
+        <v-tab to="/user">User</v-tab>
+        <v-tab to="/diary">Diary</v-tab>
+      </v-tabs>
     </v-app-bar>
-    <v-navigation-drawer app v-model="drawer" absolute>
+    <v-navigation-drawer app v-model="drawer" temporary>
       <v-list nav dense>
-        <v-list-item-group v-model="group" active-class="primary--text">
+        <v-list-item-group  active-class="primary--text">
           <v-list-item>
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
@@ -29,10 +34,7 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-footer color="primary" dark app>
-      Footary 
-    </v-footer>
-  </v-app>  
+  </header>  
 </template>
 
 <script>
@@ -43,6 +45,13 @@ export default {
       drawer: false,
       group: null,
     }
-  },
+  }, 
 }
 </script>
+
+<style scoped>
+.v-toolbar__title {
+  overflow: visible !important;
+  margin-right: 50px !important;
+}
+</style>

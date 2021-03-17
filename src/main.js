@@ -3,8 +3,9 @@ import App from './App.vue'
 import Diary from './pages/Diary.vue';
 import Home from './pages/Home.vue';
 import Authentication from './pages/Authentication';
-import Navbar from './pages/Navbar.vue';
+import Header from './pages/Header.vue';
 import User from './pages/User.vue';
+import Footer from './pages/Footer.vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store/store';
@@ -14,8 +15,9 @@ Vue.config.productionTip = false
 Vue.component('Diary', Diary);
 Vue.component('Home', Home);
 Vue.component('Authentication', Authentication);
-Vue.component('Navbar', Navbar);
+Vue.component('Header', Header);
 Vue.component('User', User);
+Vue.component('Footer', Footer);
 
 
 

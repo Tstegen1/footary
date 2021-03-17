@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <Navbar></Navbar>
+    <Header></Header>
     <router-view></router-view>
-  </v-app>
+    <Footer></Footer>
+  </v-app>  
 </template>
 
-<script>
-</script>
