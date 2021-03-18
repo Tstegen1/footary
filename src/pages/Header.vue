@@ -2,9 +2,9 @@
 <template>
   <header>
     <v-app-bar app dark color="primary">
-      <v-app-bar-nav-icon  dark  @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon  class="hidden-md-and-up" dark  @click="drawer = true"></v-app-bar-nav-icon>
       <v-toolbar-title>Footary</v-toolbar-title>
-      <v-tabs>
+      <v-tabs class="hidden-sm-and-down">
         <v-tab to="/">Home</v-tab>
         <v-tab to="/user">User</v-tab>
         <v-tab to="/diary">Diary</v-tab>

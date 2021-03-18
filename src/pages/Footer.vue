@@ -1,5 +1,5 @@
 <template>
-  <v-footer app color="primary" dark class="justify-center"> 
+  <v-footer absolute color="primary" dark class="justify-center"> 
     Footary 
   </v-footer>
 </template> 
