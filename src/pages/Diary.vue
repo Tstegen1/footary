@@ -1,14 +1,15 @@
 <!-- サッカーノートを書く -->
 <template>
   <v-main>
-    <v-container>
+    <Target></Target>
+    <v-container id="diary">
       <v-row justify="center">
         <v-col xs="12" sm="8" md="8">
           <v-textarea 
             auto-grow
             outlined
-            name="良かったところ"
-            label="良かったところ"
+            name="良かった点"
+            label="良かった点"
             v-model="goodText"
           ></v-textarea>          
           <v-textarea
@@ -21,18 +22,21 @@
           <v-textarea
             auto-grow
             outlined
-            name="振り返り"
-            label="1日の振り返り"
-            v-model="diaryText"
+            name="明日意識すること"
+            label="明日意識すること"
+            v-model="mindText"
           ></v-textarea>          
         </v-col>
       </v-row>
     </v-container>
-    <v-btn color="primary" class="btn">
-      登録する
-    </v-btn>
+    <v-container id="submit">
+      <v-btn color="primary" width="180px" @click="post">
+        登録する
+      </v-btn>
+    </v-container>
   </v-main>
 </template>
+
 
 <script>
 export default {
@@ -40,8 +44,21 @@ export default {
     return {
       goodText: null,
       badText: null,
-      diaryText: null,
+      mindText: null,
     }
-  }
+  },
+  methods: {
+    post() {
+      //firebaseに保存する処理を書く
+      console.log('登録します');
+    }
+  },
 }
 </script>
+
+<style scoped>
+#submit {
+  text-align: center;
+}
+  
+</style>

@@ -6,6 +6,7 @@ import Authentication from './pages/Authentication';
 import Header from './pages/Header.vue';
 import User from './pages/User.vue';
 import Footer from './pages/Footer.vue';
+import Target from './pages/Target.vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store/store';
@@ -18,6 +19,7 @@ Vue.component('Authentication', Authentication);
 Vue.component('Header', Header);
 Vue.component('User', User);
 Vue.component('Footer', Footer);
+Vue.component('Target', Target);
 
 
 
