@@ -1,8 +1,20 @@
 <template>
   <v-container id="target">
-    <v-list>
-      <v-list-item v-for="todo in todos" :key="todo.id">{{ todo.name }}</v-list-item>
-    </v-list>
+    <v-form @submit.prevent="addTarget">
+      <v-row justify="center">
+        <v-col xs="12" sm="8" md="8">
+          <v-text-field
+          v-model="targetText"
+            label="今日の目標"
+            outlined
+          >
+          </v-text-field>
+        </v-col>
+      </v-row>
+      <v-list>
+        <v-list-item v-for="target in targets" :key="target.id">{{ target }}</v-list-item>
+      </v-list>
+    </v-form>
   </v-container>
 </template>
 
@@ -10,12 +22,15 @@
 export default {
   data() {
     return {
-      todos: [
-        {name: 'task1', id: 1},
-        {name: 'task2', id: 2},
-        {name: 'task3', id: 3},
-      ]
+      targets: [],
+      targetText: '',
     }
-  }
+  },
+  methods: {
+    addTarget() {
+      this.targets.push(this.targetText);
+      this.targetText = '';
+    }
+  },
 }
 </script>
