@@ -7,12 +7,21 @@
           v-model="targetText"
             label="今日の目標"
             outlined
+            autocomplete="off"
           >
           </v-text-field>
         </v-col>
       </v-row>
-      <v-list>
-        <v-list-item v-for="target in targets" :key="target.id">{{ target }}</v-list-item>
+      <v-list v-if="targets.length">
+        <v-list-item v-for="(target, index) in targets" :key="target.id" height="48">
+          {{ target.value }}
+          <v-icon @click="deleteTarget(index)">mdi-close-circle</v-icon>
+        </v-list-item>
+      </v-list>
+      <v-list v-else>
+        <v-list-item>
+          今日の目標を入力しよう！
+        </v-list-item>
       </v-list>
     </v-form>
   </v-container>
@@ -28,9 +37,30 @@ export default {
   },
   methods: {
     addTarget() {
-      this.targets.push(this.targetText);
+      let item = {
+        value: this.targetText,
+        isDone: false,
+      }
+      if(this.targetText) {
+        this.targets.push(item);
+      } else {
+        alert('入力されていません');
+      }
       this.targetText = '';
+    },
+    deleteTarget(index) {
+      if(confirm('削除しますか？')) {
+        this.targets.splice(index, 1);
+      }
     }
   },
 }
 </script>
+
+<style scoped>
+.v-list-item {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}  
+</style>
