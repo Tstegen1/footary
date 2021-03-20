@@ -11,7 +11,7 @@
           >
           </v-text-field>
         </v-col>
-      </v-row>
+      </v-row>      
       <v-list v-if="targets.length">
         <v-list-item v-for="(target, index) in targets" :key="target.id" height="48">
           {{ target.value }}
@@ -20,7 +20,7 @@
       </v-list>
       <v-list v-else>
         <v-list-item>
-          今日の目標を入力しよう！
+          今日の目標を入力する！（2つ）
         </v-list-item>
       </v-list>
     </v-form>
@@ -41,7 +41,7 @@ export default {
         value: this.targetText,
         isDone: false,
       }
-      if(this.targetText) {
+      if(this.targetText !== '') {
         this.targets.push(item);
       } else {
         alert('入力されていません');
@@ -54,6 +54,14 @@ export default {
       }
     }
   },
+  watch: {
+    targets: function() {
+      localStorage.setItem('targets', JSON.stringify(this.targets));
+    }
+  },
+  mounted() {
+    this.targets = JSON.parse(localStorage.getItem('targets')) || [];
+  }
 }
 </script>
 
