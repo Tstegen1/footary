@@ -1,9 +1,20 @@
 <template>
   <v-container id="target">
     <v-form @submit.prevent="addTarget">
+      <v-list v-if="targets.length < 2">
+        <v-list-item>
+          今日の目標を入力しよう！
+        </v-list-item>
+      </v-list>
+      <v-list v-else>
+        <v-list-item>
+          今日の目標！
+        </v-list-item>
+      </v-list>
       <v-row justify="center">
         <v-col xs="12" sm="8" md="8">
           <v-text-field
+          v-if="targets.length < 2"
           v-model="targetText"
             label="今日の目標"
             outlined
@@ -12,15 +23,10 @@
           </v-text-field>
         </v-col>
       </v-row>      
-      <v-list v-if="targets.length">
+      <v-list>
         <v-list-item v-for="(target, index) in targets" :key="target.id" height="48">
           {{ target.value }}
-          <v-icon @click="deleteTarget(index)">mdi-close-circle</v-icon>
-        </v-list-item>
-      </v-list>
-      <v-list v-else>
-        <v-list-item>
-          今日の目標を入力する！（2つ）
+          <v-icon @click="deleteTarget(index, target)">mdi-close-circle</v-icon>
         </v-list-item>
       </v-list>
     </v-form>
@@ -48,8 +54,8 @@ export default {
       }
       this.targetText = '';
     },
-    deleteTarget(index) {
-      if(confirm('削除しますか？')) {
+    deleteTarget(index, target) {
+      if(confirm(`"${target.value}"を削除しますか？`)) {
         this.targets.splice(index, 1);
       }
     }
